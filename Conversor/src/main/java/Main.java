@@ -24,14 +24,26 @@ public class Main {
         //Crear el HttpResponse
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-
+        //Convertir data json a java object
         Gson gson = new Gson();
         Data data = gson.fromJson(response.body(), Data.class);
 
+        //obtener el valor de clp chile
         double clp = data.conversion_rates().getClp();
-        System.out.println(clp);
-        System.out.println(data.result());
-        System.out.println(data.base_code());
+
+        //MENU Y CALCULO
+        String menu = """
+                
+                $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+                Bienvenid@s al Conversor de Moneda
+                
+                1)Dólar (USD) =>> Peso Chileno (CLP)
+                2)Peso Chileno (CLP) =>> Dólar (USD)
+                3)Euro (EUR) =>> Peso Chileno (CLP)
+                4)Peso Chileno (CLP) =>> Euro (EUR)
+                """;
+
+        System.out.println(menu);
 
 
 
