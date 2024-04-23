@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
 
@@ -13,12 +14,21 @@ public class Main {
         Convertir convertir = new Convertir();
         Moneda moneda = convertir.aObjectJava(obtenerDatos.ObtenerDatosApi(url));
 
-        //MENU Y CALCULO
-        Menu.lanzarMenu();
+        //menu y usuario
+        int opcion;
+        do {
+            Menu.lanzarMenu();
 
-        System.out.println(moneda.getClp());
+            Scanner scanner = new Scanner(System.in);
+            opcion = Integer.valueOf(scanner.next());
 
+            if (opcion != 5){
+                convertir.convertirMoneda(opcion, scanner, moneda);
+            }
 
+        } while (opcion != 5);
+
+        System.out.println("By: https://www.linkedin.com/in/framirezj2916/");
 
     }
 }
