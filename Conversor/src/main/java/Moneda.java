@@ -26,25 +26,6 @@ public class Moneda {
         return eur;
     }
 
-    public void setUsd(double usd) {
-        this.usd = usd;
-    }
 
-    public void setClp(double clp) {
-        this.clp = clp;
-    }
-
-    public void setEur(double eur) {
-        this.eur = eur;
-    }
-
-    @Override
-    public String toString() {
-        return "Moneda{" +
-                "usd=" + usd +
-                ", clp=" + clp +
-                ", eur=" + eur +
-                '}';
-    }
 }
 
