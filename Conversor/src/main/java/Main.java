@@ -5,12 +5,10 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) throws IOException, InterruptedException {
-
-
 
         //Direccion de solicitud a la API
         URI direccionApi = URI.create("https://v6.exchangerate-api.com/v6/3f53e2483b534f1029da6437/latest/USD");
@@ -24,33 +22,21 @@ public class Main {
                 .build();
 
         //Crear el HttpResponse
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
 
-        //HASTA AQUI YA TENGO LOS DATOS DE USD EN FORMATO STRING
+        Gson gson = new Gson();
+        Data data = gson.fromJson(response.body(), Data.class);
 
-        JsonElement jsonElement = JsonParser.parseString(response.body());
-
-        JsonObject jsonObject = jsonElement.getAsJsonObject();
-
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-        Moneda moneda = gson.fromJson(jsonObject.get("conversion_rates"), Moneda.class);
+        double clp = data.conversion_rates().getClp();
+        System.out.println(clp);
+        System.out.println(data.result());
+        System.out.println(data.base_code());
 
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Dolar a CLP");
 
-        double dolar = 50;
 
-        double result = moneda.getClp()*dolar;
 
-        System.out.printf("la conversion de dolar a clp es: %.2f", result);
-
-        System.out.println("CLP A USD");
-        double peso = 90_000;
-        double resultUSD = peso/moneda.getClp();
-        System.out.printf("la conversion de clp a dolar es: %.2f", resultUSD);
 
     }
 }
