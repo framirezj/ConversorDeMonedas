@@ -21,13 +21,13 @@ public class Main {
             }
 
             //menu y usuario
-            int opcion = 0;
+            int opcion;
             do {
 
                 Menu.lanzarMenu();
 
                 //opción escogida por el usuario
-                opcion = Integer.valueOf(scanner.next());
+                opcion = Integer.parseInt(scanner.next());
 
                 if (opcion < 5 && opcion > 0) {
                     convertir.convertirMoneda(opcion, scanner, moneda);
