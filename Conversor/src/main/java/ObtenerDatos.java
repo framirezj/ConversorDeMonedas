@@ -6,7 +6,7 @@ import java.net.http.HttpResponse;
 
 public class ObtenerDatos {
 
-    public HttpResponse<String> ObtenerDatosApi(String url) throws IOException, InterruptedException {
+    public HttpResponse<String> ObtenerDatosApi(String url)  {
 
         //Direccion de solicitud a la API
         URI direccion = URI.create(url);
@@ -20,7 +20,12 @@ public class ObtenerDatos {
                 .build();
 
         //Crear el HttpResponse
-        return client.send(request, HttpResponse.BodyHandlers.ofString());
+        try {
+            return client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 

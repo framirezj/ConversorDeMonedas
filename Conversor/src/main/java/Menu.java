@@ -1,7 +1,7 @@
 public class Menu {
 
     public static void lanzarMenu(){
-        System.out.println("");
+
         String menu = """
                \s
                 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$

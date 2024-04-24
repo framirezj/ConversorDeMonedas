@@ -1,12 +1,8 @@
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Scanner;
-
 public class Moneda {
 
     //Atributos
-    @SerializedName("USD")
-    private double usd;
 
     @SerializedName("CLP")
     private double clp;
@@ -16,9 +12,6 @@ public class Moneda {
 
 
     //Getters
-    public double getUsd() {
-        return usd;
-    }
 
     public double getClp() {
         return clp;
@@ -27,7 +20,6 @@ public class Moneda {
     public double getEur() {
         return eur;
     }
-
 
 }
 
