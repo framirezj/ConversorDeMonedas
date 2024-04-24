@@ -1,4 +1,4 @@
-# _Challenge Conversor de Monedas_ - Oracle ONE 🔐
+# _Challenge Conversor de Monedas_ - Oracle ONE 💸
 <img src="https://www.aluracursos.com/assets/img/challenges/oracle-one/logo-challenge.1686744883.svg" width="25%"></img> <img src="https://www.aluracursos.com/assets/img/challenges/oracle-one/logo-one.1686744883.svg" width="15%"></img>
 ## _Autor_
 -  😎 Francisco Ramirez
